@@ -32,7 +32,7 @@ import { CommonModule } from '@angular/common';
   <input class="text" type="text" [(ngModel)]="server" name="server">
   </div>
   <div class="button">
-  <button (click)="getAceRacer()">Check ID</button>
+  <button type="button" class="btn btn-primary"(click)="getAceRacer()">Check ID</button>
   </div>
   </div>
   `,
