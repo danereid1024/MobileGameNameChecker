@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
-import { GameNameCheckerComponent } from "../game-name-checker/game-name-checker.component";
 
 @Component({
   selector: 'app-nav',
   imports: [RouterOutlet, RouterLink],
   template: `
-    <li><a  routerLink="valorant">Valorant</a></li>
+    <li><a routerLink="valorant">Valorant</a></li>
     <li><a routerLink="mobile-legends">Mobile Legends</a></li>
     <li><a routerLink="jawaker">Jawaker</a></li>
     <li><a routerLink="pubg">PUBG Mobile</a></li>
@@ -43,6 +42,9 @@ import { GameNameCheckerComponent } from "../game-name-checker/game-name-checker
   }`
 })
 export class NavComponent {
+
+  constructor(private cdr: ChangeDetectorRef) { }
+
 
   gameName = '';
 
