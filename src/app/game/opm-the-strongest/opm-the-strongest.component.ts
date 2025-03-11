@@ -31,7 +31,7 @@ import { CommonModule } from '@angular/common';
   <input  class="text" type="text" [(ngModel)]="zone_id" name="zone_id">
   </div>
   <div class="button">
-  <button (click)="getOnePunchMan()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getOnePunchMan()">Check ID</button>
   </div>
   </div>
   `,

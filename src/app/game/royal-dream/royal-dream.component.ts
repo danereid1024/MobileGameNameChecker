@@ -26,7 +26,7 @@ import { CommonModule } from '@angular/common';
   <input matInput class="text" type="text" [(ngModel)]="id" name="id">
   </div>
   <div class="button">
-  <button (click)="getRoyalDreamID()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getRoyalDreamID()">Check ID</button>
   </div>
   </div>
   `,

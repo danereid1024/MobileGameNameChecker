@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
   </div>
   <div class="button">
   
-  <button (click)="getCallOfDuty()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getCallOfDuty()">Check ID</button>
   </div>
   </div>
   `,

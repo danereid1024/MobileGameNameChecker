@@ -37,7 +37,7 @@ import { CommonModule } from '@angular/common';
   
   
   <div class="button">
-  <button mat-flat-button (click)="getTeenPattiGoldID()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getTeenPattiGoldID()">Check ID</button>
   </div>
   </div>
   `,

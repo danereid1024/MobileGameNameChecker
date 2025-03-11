@@ -26,7 +26,7 @@ import { CommonModule } from '@angular/common';
   <input  class="text" type="text" [(ngModel)]="id" name="userId">
   </div>
   <div class="button">
-  <button (click)="getSpeedDrifters()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getSpeedDrifters()">Check ID</button>
   </div>
   </div>
   `,

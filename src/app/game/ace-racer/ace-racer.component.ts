@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-ace-racer',
   imports: [FormsModule, CommonModule],
   template: `
+  <span class="border">
   <div class="content">
   <div class="title">
   <h1>Ace Racer Name Checker</h1>
@@ -35,6 +36,7 @@ import { CommonModule } from '@angular/common';
   <button type="button" class="btn btn-primary"(click)="getAceRacer()">Check ID</button>
   </div>
   </div>
+  </span>
   `,
   styles: `
   .title{

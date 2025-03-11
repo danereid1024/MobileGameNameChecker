@@ -31,7 +31,7 @@ import { CommonModule } from '@angular/common';
   <input class="text" type="text" [(ngModel)]="server" name="server">
   </div>
   <div class="button">
-  <button mat-flat-button (click)="getTomAndJerryChase()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getTomAndJerryChase()">Check ID</button>
   </div>
   </div>
   `,

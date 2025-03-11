@@ -27,7 +27,7 @@ import { FormsModule } from '@angular/forms';
   </div>
   <div class="button">
   
-  <button (click)="getDragonRaja()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getDragonRaja()">Check ID</button>
   </div>
   </div>
   `,

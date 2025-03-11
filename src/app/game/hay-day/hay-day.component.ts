@@ -25,7 +25,7 @@ import { CommonModule } from '@angular/common';
     <input  class="text" type="text" [(ngModel)]="tag" name="userId">
   </div>
   <div class="button">
-  <button (click)="getHayDay()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getHayDay()">Check ID</button>
   </div>
   </div>
   `,

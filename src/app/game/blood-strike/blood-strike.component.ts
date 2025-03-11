@@ -26,7 +26,7 @@ import { CommonModule } from '@angular/common';
   <input class="text" type="text" [(ngModel)]="userId" name="userId">
   </div>
   <div class="button">
-  <button (click)="getBloodStrike()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getBloodStrike()">Check ID</button>
   </div>
   </div>
   `,

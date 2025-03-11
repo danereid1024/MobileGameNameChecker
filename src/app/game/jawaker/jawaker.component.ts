@@ -26,7 +26,7 @@ import { CommonModule } from '@angular/common';
   <input class="text" type="text" [(ngModel)]="userId" name="userId">
   </div>  
   <div class="button">
-  <button (click)="getJawakerID()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getJawakerID()">Check ID</button>
   </div>
   </div>
   `,

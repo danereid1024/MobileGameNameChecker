@@ -25,7 +25,7 @@ import { CommonModule } from '@angular/common';
   <input class="text" type="text" [(ngModel)]="tag" name="tag">
   </div>
   <div class="button">
-  <button (click)="getBrawlStars()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getBrawlStars()">Check ID</button>
   </div>
   </div>
   `,

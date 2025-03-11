@@ -33,7 +33,7 @@ import { CommonModule } from '@angular/common';
   <input class="text" type="text" [(ngModel)]="tag" name="tag">
   </div>
   <div class="button">
-  <button mat-flat-button (click)="getValorantID()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getValorantID()">Check ID</button>
   </div>
   </div>
   `,

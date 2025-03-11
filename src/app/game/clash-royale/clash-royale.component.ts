@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
   </div>
   <div class="button">
   
-  <button (click)="getClashRoyale()">Check Tag</button>
+  <button type="button" class="btn btn-primary" (click)="getClashRoyale()">Check Tag</button>
   </div>
   </div>
   `,

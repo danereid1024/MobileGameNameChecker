@@ -23,7 +23,7 @@ import { CommonModule } from '@angular/common';
   </div>
   <input  class="text" type="text" [(ngModel)]="id" name="userId">
   <div class="button">
-  <button mat-flat-button (click)="getEggyParty()">Check ID</button>
+  <button type="button" class="btn btn-primary" (click)="getEggyParty()">Check ID</button>
   </div>
   </div>
   `,
