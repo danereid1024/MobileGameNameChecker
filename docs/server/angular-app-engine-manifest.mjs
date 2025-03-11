@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/MobileGameNameChecker/',
+  basePath: '/',
   entryPoints: new Map([['', () => import('./main.server.mjs')]]),
 };
   
