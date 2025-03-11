@@ -1,0 +1,1 @@
+import{a as u}from"./chunk-F65SNACY.mjs";import{V as t,X as o,Y as p,Z as a,_ as r,g as e}from"./chunk-FXYNMOW6.mjs";e();r();a();export{u as default,p as \u0275destroyAngularServerApp,t as \u0275extractRoutesAndCreateRouteTree,o as \u0275getOrCreateAngularServerApp};
