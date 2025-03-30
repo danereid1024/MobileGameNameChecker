@@ -1,0 +1,31 @@
+
+<form class="example-form">
+  <div *ngIf="this.pageId">
+      <mat-form-field class="example-full-width">
+        <mat-label>User ID</mat-label>
+        <input class="text" type="text" (input)="onInputChange($event)" name="id" matInput placeholder="Enter User's ID">
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="this.pageTag">
+      <mat-form-field class="example-full-width">
+        <mat-label>User Tag</mat-label>
+        <input class="text" type="text" (input)="onInputChange($event)" name="tag" matInput placeholder="Enter User's Tag">
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="this.pageServer">
+      <mat-form-field class="example-full-width">
+        <mat-label>Server Number</mat-label>
+        <input class="text" type="text" (input)="onInputChange($event)" name="server" matInput placeholder="Enter User's Server">
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="this.pageZone_Id">
+      <mat-form-field class="example-full-width">
+        <mat-label>Zone ID</mat-label>
+        <input class="text" type="text" (input)="onInputChange($event)" name="zoneId" matInput placeholder="Enter User's Zone ID">
+      </mat-form-field>
+    </div>
+
+  </form>

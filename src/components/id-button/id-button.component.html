@@ -1,0 +1,8 @@
+<div class="search">
+    <div *ngIf="nameData?.msg === 'id_found'">
+      User found!
+    </div>
+    <p class="username">{{nameData?.data?.username}}</p>
+</div>
+
+<button mat-flat-button (click)="getGameID()">Search Game</button>

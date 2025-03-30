@@ -1,0 +1,18 @@
+<section>
+    <mat-form-field>
+        <mat-label>Find Game</mat-label>
+        <input type="text" matInput>
+      </mat-form-field>
+      <button class="primary" type="button" mat-flat-button>Search</button>
+      
+</section>
+<section class="results">
+
+<mat-grid-list cols="3" gutterSize="10px">
+<mat-grid-tile *ngFor="let gamesDetails of gamesList"> <app-games  [gamesDetails]="gamesDetails"/></mat-grid-tile>
+
+</mat-grid-list>
+
+</section>
+
+<!-- [colspan]="tile.cols" [rowspan]="tile.rows" -->

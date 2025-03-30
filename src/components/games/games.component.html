@@ -1,0 +1,9 @@
+<section class="gamesDetails">
+                        <img class="game-image" [src]="gamesDetails.photo" alt="Exterior of the game {{gamesDetails.name}}">
+                                <mat-list role="list">
+                                    <!-- <mat-list-item role="listitem">Genre: {{ gamesDetails.genre }}</mat-list-item>
+                                    <mat-list-item role="listitem">Publisher: {{ gamesDetails.publisher }}</mat-list-item>
+                                    <mat-list-item role="listitem">Developer: {{ gamesDetails.developer }}</mat-list-item> -->
+                                  </mat-list>
+                                  <a [routerLink]="['/id-search', gamesDetails.id]">Search ID</a>
+</section>
