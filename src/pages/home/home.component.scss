@@ -108,10 +108,23 @@
     font-size: 1.1rem;
     transition: all 0.3s ease;
 
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      opacity: 1;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
     &:focus {
       background: rgba(255, 255, 255, 0.08);
       border-color: var(--primary-color);
       box-shadow: 0 0 30px rgba(252, 238, 10, 0.2);
+
+      &::placeholder {
+        color: rgba(252, 238, 10, 0.7);
+        transform: translateX(5px);
+      }
     }
   }
 
