@@ -1,31 +1,78 @@
+<form class="game-form fade-in py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="text-center mb-0">Player Information</h3>
+          </div>
+          <div class="card-body">
+            <div class="mb-4" *ngIf="this.pageId">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userId"
+                  (input)="onInputChange($event)"
+                  name="id"
+                  placeholder="Enter User's ID"
+                />
+                <label for="userId">
+                  <i class="fas fa-user me-2"></i>User ID
+                </label>
+              </div>
+            </div>
 
-<form class="example-form">
-  <div *ngIf="this.pageId">
-      <mat-form-field class="example-full-width">
-        <mat-label>User ID</mat-label>
-        <input class="text" type="text" (input)="onInputChange($event)" name="id" matInput placeholder="Enter User's ID">
-      </mat-form-field>
+            <div class="mb-4" *ngIf="this.pageTag">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userTag"
+                  (input)="onInputChange($event)"
+                  name="tag"
+                  placeholder="Enter User's Tag"
+                />
+                <label for="userTag">
+                  <i class="fas fa-tag me-2"></i>User Tag
+                </label>
+              </div>
+            </div>
+
+            <div class="mb-4" *ngIf="this.pageServer">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="serverNumber"
+                  (input)="onInputChange($event)"
+                  name="server"
+                  placeholder="Enter User's Server"
+                />
+                <label for="serverNumber">
+                  <i class="fas fa-server me-2"></i>Server Number
+                </label>
+              </div>
+            </div>
+
+            <div class="mb-4" *ngIf="this.pageZone_Id">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="zoneId"
+                  (input)="onInputChange($event)"
+                  name="zoneId"
+                  placeholder="Enter User's Zone ID"
+                />
+                <label for="zoneId">
+                  <i class="fas fa-map-marker-alt me-2"></i>Zone ID
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div *ngIf="this.pageTag">
-      <mat-form-field class="example-full-width">
-        <mat-label>User Tag</mat-label>
-        <input class="text" type="text" (input)="onInputChange($event)" name="tag" matInput placeholder="Enter User's Tag">
-      </mat-form-field>
-    </div>
-
-    <div *ngIf="this.pageServer">
-      <mat-form-field class="example-full-width">
-        <mat-label>Server Number</mat-label>
-        <input class="text" type="text" (input)="onInputChange($event)" name="server" matInput placeholder="Enter User's Server">
-      </mat-form-field>
-    </div>
-
-    <div *ngIf="this.pageZone_Id">
-      <mat-form-field class="example-full-width">
-        <mat-label>Zone ID</mat-label>
-        <input class="text" type="text" (input)="onInputChange($event)" name="zoneId" matInput placeholder="Enter User's Zone ID">
-      </mat-form-field>
-    </div>
-
-  </form>
+  </div>
+</form>

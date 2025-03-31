@@ -1,18 +1,70 @@
-<section>
-    <mat-form-field>
-        <mat-label>Find Game</mat-label>
-        <input type="text" matInput>
-      </mat-form-field>
-      <button class="primary" type="button" mat-flat-button>Search</button>
-      
+<section class="search-hero fade-in">
+  <div class="hero-overlay"></div>
+  <div class="container position-relative">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <div class="text-center hero-content">
+          <h1 class="display-4 mb-4 text-gradient">Game Name Checker</h1>
+          <p class="lead mb-5">
+            Discover and verify your favorite mobile game names instantly
+          </p>
+
+          <div class="search-container">
+            <div class="search-box">
+              <div class="form-group position-relative">
+                <input
+                  type="text"
+                  class="form-control search-input"
+                  id="gameSearch"
+                  matInput
+                  placeholder="Enter game name..."
+                />
+                <div class="input-effects"></div>
+                <button class="search-btn" type="button" mat-flat-button>
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="results">
 
-<mat-grid-list cols="3" gutterSize="10px">
-<mat-grid-tile *ngFor="let gamesDetails of gamesList"> <app-games  [gamesDetails]="gamesDetails"/></mat-grid-tile>
+<section class="results-section">
+  <div class="container">
+    <div class="section-header text-center mb-5">
+      <h2 class="text-gradient">Featured Games</h2>
+      <div class="header-line"></div>
+    </div>
 
-</mat-grid-list>
-
+    <div class="games-grid">
+      <div
+        class="game-wrapper"
+        *ngFor="let gamesDetails of gamesList; let i = index"
+      >
+        <div class="game-card" [attr.data-index]="i">
+          <div class="card-glow"></div>
+          <div class="card-content">
+            <div class="game-header">
+              <div class="game-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
+            </div>
+            <div class="game-body">
+              <app-games [gamesDetails]="gamesDetails"></app-games>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-outline-primary btn-sm">
+                <i class="fas fa-info-circle me-2"></i>Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- [colspan]="tile.cols" [rowspan]="tile.rows" -->

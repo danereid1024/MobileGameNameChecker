@@ -1,3 +1,328 @@
 // mat-grid-tile {
 //     background-color: lightblue;
 // }
+
+/* Variables */
+:host {
+  --card-height: 380px;
+  --card-width: 300px;
+  --glow-color: rgba(252, 238, 10, 0.15);
+  --gradient-primary: linear-gradient(135deg, #fcee0a 0%, #ff2d55 100%);
+}
+
+/* Hero Section */
+.search-hero {
+  min-height: 80vh;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--bg-darker) 0%,
+    var(--bg-dark) 100%
+  );
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 6rem 0;
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(252, 238, 10, 0.05) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 20%,
+        rgba(255, 45, 85, 0.1) 0%,
+        transparent 40%
+      );
+    pointer-events: none;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    filter: blur(80px);
+    opacity: 0.1;
+    animation: glowPulse 8s infinite;
+  }
+
+  &::before {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  &::after {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: -4s;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(252, 238, 10, 0.3);
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Search Box */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-box {
+  position: relative;
+
+  .search-input {
+    height: 60px;
+    padding: 0 60px 0 30px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(252, 238, 10, 0.1);
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary-color);
+      box-shadow: 0 0 30px rgba(252, 238, 10, 0.2);
+    }
+  }
+
+  .search-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    border: none;
+    color: var(--bg-darker);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 0 20px rgba(252, 238, 10, 0.3);
+    }
+  }
+}
+
+/* Results Section */
+.results-section {
+  background-color: var(--bg-dark);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header {
+  position: relative;
+  margin-bottom: 4rem;
+
+  h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .header-line {
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: 1rem auto;
+    border-radius: 2px;
+  }
+}
+
+/* Games Grid */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.game-wrapper {
+  perspective: 1000px;
+}
+
+.game-card {
+  position: relative;
+  width: 100%;
+  min-height: var(--card-height);
+  background: var(--bg-darker);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--mouse-x) var(--mouse-y),
+      var(--glow-color) 0%,
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--mouse-x) var(--mouse-y),
+      rgba(252, 238, 10, 0.1) 0%,
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover {
+    transform: translateY(-10px) rotateX(var(--rotate-x))
+      rotateY(var(--rotate-y));
+
+    &::before,
+    .card-glow {
+      opacity: 1;
+    }
+  }
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  .game-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--bg-darker);
+  }
+}
+
+.game-body {
+  flex: 1;
+}
+
+.card-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+
+  .btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+
+    &:hover {
+      background: var(--gradient-primary);
+      color: var(--bg-darker);
+    }
+  }
+}
+
+/* Animations */
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.2);
+  }
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .search-hero {
+    min-height: 60vh;
+    padding: 4rem 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .search-box .search-input {
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Add 3D card effect with mouse movement */
+.game-card {
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}

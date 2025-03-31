@@ -1,4 +1,193 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Modern Gaming Theme - Inspired by Rockstar Games */
+
+// Custom Properties
+:root {
+  --primary-color: #fcee0a; /* Rockstar yellow */
+  --secondary-color: #000000; /* Deep black */
+  --accent-color: #ff2d55; /* Vibrant red */
+  --text-primary: #ffffff; /* White text */
+  --text-secondary: #9b9b9b; /* Muted gray */
+  --bg-dark: #121212; /* Dark background */
+  --bg-darker: #0a0a0a; /* Darker sections */
+  --font-heading: "Orbitron", sans-serif;
+  --font-body: "Rajdhani", sans-serif;
+}
+
+/* Reset and Base Styles */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+/* Bootstrap Overrides */
+.btn {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 2rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+
+  &:hover {
+    background-color: darken(#fcee0a, 10%);
+    color: var(--secondary-color);
+  }
+}
+
+.form-control {
+  background-color: var(--bg-darker);
+  border: 2px solid var(--text-secondary);
+  color: var(--text-primary);
+  border-radius: 0;
+  padding: 1rem;
+
+  &:focus {
+    background-color: var(--bg-darker);
+    border-color: var(--primary-color);
+    color: var(--text-primary);
+    box-shadow: none;
+  }
+}
+
+/* Container Styles */
+.container {
+  padding: 2rem 1rem;
+
+  @media (min-width: 768px) {
+    padding: 3rem 2rem;
+  }
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--bg-darker);
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-header {
+    background-color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding: 1.5rem;
+  }
+
+  .card-body {
+    padding: 2rem;
+  }
+}
+
+/* Navigation Styles */
+.navbar {
+  background-color: var(--bg-darker);
+  padding: 1rem 2rem;
+  border-bottom: 2px solid var(--primary-color);
+
+  .navbar-brand {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .nav-link {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 1rem;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
+
+/* Utility Classes */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+.text-accent {
+  color: var(--accent-color) !important;
+}
+.bg-dark {
+  background-color: var(--bg-dark) !important;
+}
+.bg-darker {
+  background-color: var(--bg-darker) !important;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+}
