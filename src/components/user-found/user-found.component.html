@@ -1,43 +1,34 @@
-<div class="search-results container py-5 fade-in">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="text-center mb-0">Search Results</h3>
+<div class="search-results">
+  <div class="results-container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Search Results</h3>
+      </div>
+      <div class="card-body">
+        <!-- Success Alert -->
+        <div class="alert-success" *ngIf="nameData?.msg === 'id_found'">
+          <i class="fas fa-check-circle"></i>
+          <span>Player Found!</span>
         </div>
-        <div class="card-body text-center">
-          <div
-            class="alert alert-success d-flex align-items-center justify-content-center mb-4"
-            *ngIf="nameData?.msg === 'id_found'"
-          >
-            <i class="fas fa-check-circle me-2"></i>
-            <span>Player Found!</span>
-          </div>
 
-          <div class="player-profile" *ngIf="nameData?.data?.username">
-            <div class="avatar-wrapper mb-4">
-              <i class="fas fa-user-circle fa-4x text-primary"></i>
+        <!-- Player Profile -->
+        <div class="player-profile" *ngIf="nameData?.data?.username">
+          <div class="avatar-wrapper">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <h2 class="username">{{ nameData?.data?.username }}</h2>
+
+          <!-- Stats Grid -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <i class="fas fa-gamepad"></i>
+              <h4>Games</h4>
+              <p>Active</p>
             </div>
-            <h2 class="username text-primary mb-3">
-              {{ nameData?.data?.username }}
-            </h2>
-            <div class="stats-wrapper">
-              <div class="row g-3">
-                <div class="col-6">
-                  <div class="stat-card bg-darker p-3">
-                    <i class="fas fa-gamepad mb-2"></i>
-                    <h4>Games</h4>
-                    <p class="mb-0">Active</p>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="stat-card bg-darker p-3">
-                    <i class="fas fa-trophy mb-2"></i>
-                    <h4>Status</h4>
-                    <p class="mb-0">Verified</p>
-                  </div>
-                </div>
-              </div>
+            <div class="stat-card">
+              <i class="fas fa-trophy"></i>
+              <h4>Status</h4>
+              <p>Verified</p>
             </div>
           </div>
         </div>

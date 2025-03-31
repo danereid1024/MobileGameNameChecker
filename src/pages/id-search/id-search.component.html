@@ -1,6 +1,35 @@
-<h1 class="listing-heading">{{ gamesInfo?.name }} Name Checker</h1>
-<h2>Search for a user's name</h2>
-<h3>Enter the user's ID to see their username</h3>
-<app-user-found />
-<app-id-input (idChanged)="updateId($event)" />
-<app-id-button [id]="id" [server]="server" [tag]="tag"></app-id-button>
+<!-- Page Container -->
+<div class="id-search-page">
+  <!-- Header Section -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="listing-heading">{{ gamesInfo?.name }} Name Checker</h1>
+      <div class="header-description">
+        <h2>Search for a user's name</h2>
+        <h3>Enter the user's ID to see their username</h3>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Section -->
+  <main class="main-content">
+    <div class="container">
+      <div class="content-grid">
+        <!-- Search Form Section -->
+        <section class="search-section">
+          <app-id-input (idChanged)="updateId($event)" />
+          <app-id-button
+            [id]="id"
+            [server]="server"
+            [tag]="tag"
+          ></app-id-button>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section">
+          <app-user-found />
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
