@@ -21,15 +21,18 @@ export class IdSearchComponent {
 
   gamepageId?: any
 
-  id: string = ''
-server: string = '';
-tag: string = '';
-// server: string;
-// tag: string;
-// zone_id: string;
+  id: any = ''
+  server: string = '';
+  tag: string = '';
+  // zone_id: string;
 
-  updateId(newId: string) {
+  updateId(newId: any) {
     this.id = newId;
+
+  }
+
+  updateServer(newServer: string) {
+    this.server = newServer;
   }
 
   constructor() {

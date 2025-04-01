@@ -23,16 +23,21 @@ convertToString(value: any): string {
   return String(value); // Convert to string logic
 }
 
-  @Output() idChanged = new EventEmitter<string>();
+  @Output() idChanged = new EventEmitter<any>();
+  @Output() userIdChanged = new EventEmitter<string>();
+  @Output() serverChanged = new EventEmitter<string>();
+  @Output() tagChanged = new EventEmitter<string>();
+  @Output() zoneIdChanged = new EventEmitter<string>();
 
   route: ActivatedRoute = inject(ActivatedRoute);
   gameService = inject(GameListService);
   
   gamesInfo : GamesInfo | undefined;
   pageId = false;
+  pageUserId = false;
   pageTag = false;
   pageServer = false;
-  pageZone_Id = false;
+  pageZoneId = false;
 
   constructor() {
     const gameId = Number(this.route.snapshot.paramMap.get('id'));
@@ -88,7 +93,7 @@ convertToString(value: any): string {
       break;
     case 17:
       this.pageId = true;
-      this.pageZone_Id = true;
+      this.pageZoneId = true;
       break;
     case 18:
       this.pageId = true;
@@ -104,8 +109,36 @@ convertToString(value: any): string {
     }
   }
 
-  onInputChange(event: Event) {
+  onIdInputChange(event: Event) {
     const inputValue = (event.target as HTMLInputElement).value;
     this.idChanged.emit(inputValue);
   }
+
+  onUserIdInputChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.userIdChanged.emit(inputValue);
+  }
+
+  onServerInputChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.serverChanged.emit(inputValue);
+  }
+
+  onTagInputChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.tagChanged.emit(inputValue);
+  }
+
+  onZoneIdInputChange(event: Event) {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.zoneIdChanged.emit(inputValue);
+  }
+
+
+  /*
+      this.userIdChanged.emit(inputValue);
+    
+    this.tagChanged.emit(inputValue);
+    this.zoneIdChanged.emit(inputValue);
+  */
 }

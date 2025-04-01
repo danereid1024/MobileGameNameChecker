@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 })
 export class IdButtonComponent {
 
-  @Input() id: string = '';
+  @Input() id: any = '';
   @Input() userId: string = '';
   @Input() server: string = '';
   @Input() tag: string = '';
@@ -108,9 +108,20 @@ export class IdButtonComponent {
         },
     });
     } else if (this.gamesInfo?.id === 6) {
+      console.log(this.id, this.server)
       this.nameCheckerService.getGenshinImpact(this.id, this.server).subscribe({  
+        
         next: (data) => {
-          this.getNextData(data);
+          this.nameData = data;
+          data.status
+          console.log(
+            this.nameData?.error,
+            this.nameData?.status,
+            this.nameData?.msg
+          )
+          if (this.nameData?.msg === 'id_not_found' || this.nameData?.error) {
+            alert("Invalid user ID!");
+            }
         },
         error: (err) => {
           console.error(err);

@@ -2,5 +2,5 @@
 <h2>Search for a user's name</h2>
 <h3>Enter the user's ID to see their username</h3>
 <app-user-found />
-<app-id-input (idChanged)="updateId($event)"/>
+<app-id-input (idChanged)="updateId($event)" (serverChanged)="updateServer($event)"/>
 <app-id-button [id]="id" [server]="server" [tag]="tag"></app-id-button>
