@@ -7,10 +7,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-user-found',
   imports: [CommonModule],
   templateUrl: './user-found.component.html',
-  styleUrl: './user-found.component.scss'
+  styleUrl: './user-found.component.scss',
 })
 export class UserFoundComponent {
-
   nameData?: NameCheckerResponse;
-
 }

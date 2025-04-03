@@ -1,9 +1,46 @@
-<section class="gamesDetails">
-                        <img class="game-image" [src]="gamesDetails.photo" alt="Exterior of the game {{gamesDetails.name}}">
-                                <mat-list role="list">
-                                    <!-- <mat-list-item role="listitem">Genre: {{ gamesDetails.genre }}</mat-list-item>
+<div class="game-card-inner">
+  <div class="game-image-wrapper">
+    <div class="image-overlay"></div>
+    <img
+      class="game-image"
+      [src]="gamesDetails.photo"
+      [alt]="gamesDetails.name"
+      loading="lazy"
+    />
+    <div class="game-badges">
+      <span class="badge genre-badge">
+        <i class="fas fa-gamepad me-1"></i>
+        {{ gamesDetails.genre }}
+      </span>
+    </div>
+  </div>
+
+  <div class="game-info">
+    <h3 class="game-title">{{ gamesDetails.name }}</h3>
+
+    <div class="game-meta">
+      <div class="meta-item">
+        <i class="fas fa-building me-2"></i>
+        <span>{{ gamesDetails.publisher }}</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-code me-2"></i>
+        <span>{{ gamesDetails.developer }}</span>
+      </div>
+    </div>
+
+    <div class="game-actions">
+      <a [routerLink]="['/id-search', gamesDetails.id]" class="action-button">
+        <span class="button-content">
+          <i class="fas fa-search me-2"></i>
+          Search ID
+        </span>
+        <div class="button-glow"></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- <mat-list-item role="listitem">Genre: {{ gamesDetails.genre }}</mat-list-item>
                                     <mat-list-item role="listitem">Publisher: {{ gamesDetails.publisher }}</mat-list-item>
                                     <mat-list-item role="listitem">Developer: {{ gamesDetails.developer }}</mat-list-item> -->
-                                  </mat-list>
-                                  <a [routerLink]="['/id-search', gamesDetails.id]">Search ID</a>
-</section>

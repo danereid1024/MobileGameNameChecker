@@ -1,8 +1,218 @@
 .example-card {
-    max-width: 400px;
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.game-card-inner {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(18, 18, 18, 0.9),
+    rgba(10, 10, 10, 0.95)
+  );
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    border-color: rgba(252, 238, 10, 0.2);
+    box-shadow: 0 0 30px rgba(252, 238, 10, 0.1),
+      inset 0 0 30px rgba(252, 238, 10, 0.05);
+
+    .image-overlay {
+      opacity: 0.5;
+    }
+
+    .game-image {
+      transform: scale(1.1);
+    }
+
+    .action-button .button-glow {
+      opacity: 1;
+    }
   }
-  
-  .example-header-image {
-    background-size: cover;
+}
+
+.game-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; // 16:9 aspect ratio
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(10, 10, 10, 1), transparent);
+    z-index: 1;
   }
-  
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(252, 238, 10, 0.2),
+    rgba(255, 45, 85, 0.2)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.game-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.game-badges {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.genre-badge {
+  background: rgba(10, 10, 10, 0.8);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(252, 238, 10, 0.2);
+}
+
+.game-info {
+  position: relative;
+  padding: 1.5rem;
+  z-index: 2;
+}
+
+.game-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 0 0 10px rgba(252, 238, 10, 0.3);
+}
+
+.game-meta {
+  margin-bottom: 1.5rem;
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+
+    i {
+      color: var(--primary-color);
+      width: 20px;
+    }
+  }
+}
+
+.game-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 25px;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  .button-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .button-glow {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    color: var(--bg-darker);
+    border-color: transparent;
+
+    .button-glow {
+      opacity: 1;
+    }
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .game-title {
+    font-size: 1.25rem;
+  }
+
+  .game-badges {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .genre-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .game-info {
+    padding: 1rem;
+  }
+}
+
+/* Animation for staggered card appearance */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:host {
+  display: block;
+  animation: cardAppear 0.5s ease forwards;
+}

@@ -5,30 +5,35 @@ import { GameListService } from '../../services/game-list.service';
 import { GamesInfo } from '../../interfaces/games-info';
 import { IdInputComponent } from '../../components/id-input/id-input.component';
 import { UserFoundComponent } from '../../components/user-found/user-found.component';
-import { IdButtonComponent } from "../../components/id-button/id-button.component";
-
+import { IdButtonComponent } from '../../components/id-button/id-button.component';
 
 @Component({
   selector: 'app-id-search',
-  imports: [CommonModule, IdInputComponent, UserFoundComponent, IdButtonComponent],
+  imports: [
+    CommonModule,
+    IdInputComponent,
+    UserFoundComponent,
+    IdButtonComponent,
+  ],
   templateUrl: './id-search.component.html',
-  styleUrl: './id-search.component.scss'
+  styleUrl: './id-search.component.scss',
 })
 export class IdSearchComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   gameService = inject(GameListService);
-  gamesInfo : GamesInfo | undefined;
+  gamesInfo: GamesInfo | undefined;
 
-  gamepageId?: any
+  gamepageId?: any;
 
-  id: any = ''
+  id: string = '';
   server: string = '';
   tag: string = '';
+  // server: string;
+  // tag: string;
   // zone_id: string;
 
-  updateId(newId: any) {
+  updateId(newId: string) {
     this.id = newId;
-
   }
 
   updateServer(newServer: string) {
@@ -40,7 +45,6 @@ export class IdSearchComponent {
     this.gamesInfo = this.gameService.getGameById(gameId);
     console.log(this.gamesInfo);
 
-    this.gamepageId = this.gamesInfo
-
+    this.gamepageId = this.gamesInfo;
   }
 }
