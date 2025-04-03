@@ -36,6 +36,10 @@ export class IdSearchComponent {
     this.id = newId;
   }
 
+  updateServer(newServer: string) {
+    this.server = newServer;
+  }
+
   constructor() {
     const gameId = Number(this.route.snapshot.paramMap.get('id'));
     this.gamesInfo = this.gameService.getGameById(gameId);

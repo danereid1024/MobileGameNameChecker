@@ -111,7 +111,16 @@ export class IdButtonComponent {
     } else if (this.gamesInfo?.id === 6) {
       this.nameCheckerService.getGenshinImpact(this.id, this.server).subscribe({
         next: (data) => {
-          this.getNextData(data);
+          this.nameData = data;
+          data.status
+          console.log(
+            this.nameData?.error,
+            this.nameData?.status,
+            this.nameData?.msg
+          )
+          if (this.nameData?.msg === 'id_not_found' || this.nameData?.error) {
+            alert("Invalid user ID!");
+            }
         },
         error: (err) => {
           console.error(err);
