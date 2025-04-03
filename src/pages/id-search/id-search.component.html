@@ -4,3 +4,18 @@
 <app-user-found />
 <app-id-input (idChanged)="updateId($event)" (serverChanged)="updateServer($event)"/>
 <app-id-button [id]="id" [server]="server" [tag]="tag"></app-id-button>
+
+<h1>Games Details</h1>
+
+<p>Platform: {{gamesInfo?.platform}}</p>
+<p>Genre: {{gamesInfo?.genre}}</p>
+<p>Publisher: {{gamesInfo?.publisher}}</p>
+
+<!--  id: number,
+    name: string,
+    photo: string,
+    platform: string,
+    genre: string,
+    publisher: string,
+    developer: string,
+    rating: string, -->
