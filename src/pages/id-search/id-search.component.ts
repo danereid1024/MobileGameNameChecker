@@ -26,12 +26,13 @@ export class IdSearchComponent {
   gamepageId?: any;
 
   id: string = '';
+  userId: string = '';
   server: string = '';
   tag: string = '';
-  // server: string;
-  // tag: string;
-  // zone_id: string;
+  zone_id: string = '';
 
+  nameData: string = '';
+  
   updateId(newId: string) {
     this.id = newId;
   }

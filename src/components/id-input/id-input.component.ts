@@ -28,11 +28,13 @@ export class IdInputComponent implements OnInit {
   @Output() serverChanged = new EventEmitter<string>();
   @Output() tagChanged = new EventEmitter<string>();
   @Output() zoneIdChanged = new EventEmitter<string>();
+  @Output() nameDataChanged = new EventEmitter<any>();
 
   route: ActivatedRoute = inject(ActivatedRoute);
+  gamesInfo: GamesInfo | undefined;
   gameService = inject(GameListService);
 
-  gamesInfo: GamesInfo | undefined;
+  
   pageId = false;
   pageUserId = false;
   pageTag = false;
@@ -93,7 +95,7 @@ export class IdInputComponent implements OnInit {
         break;
       case 17:
         this.pageId = true;
-        this.pageZone_Id = true;
+        this.pageZoneId = true;
         break;
       case 18:
         this.pageId = true;
@@ -133,6 +135,7 @@ export class IdInputComponent implements OnInit {
     const inputValue = (event.target as HTMLInputElement).value;
     this.zoneIdChanged.emit(inputValue);
   }
+
 
 
   /*

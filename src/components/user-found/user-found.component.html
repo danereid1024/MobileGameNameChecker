@@ -6,20 +6,22 @@
       </div>
       <div class="card-body">
         <!-- Success Alert -->
-        <div class="alert-success" *ngIf="nameData?.msg === 'id_found'">
-          <i class="fas fa-check-circle"></i>
-          <span>Player Found!</span>
+        <div class="alert-success" *ngIf="nameDataService.nameData?.msg === 'id_found'">
+          <!-- <i class="fas fa-check-circle"></i> -->
+          <!-- <span>Player Found!</span> -->
+          <div class="player-profile" *ngIf="nameDataService.nameData?.data?.username">
+            <div class="avatar-wrapper">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <h2 class="username">{{ nameDataService.nameData?.data?.username }}</h2>
+           
         </div>
 
         <!-- Player Profile -->
-        <div class="player-profile" *ngIf="nameData?.data?.username">
-          <div class="avatar-wrapper">
-            <i class="fas fa-user-circle"></i>
-          </div>
-          <h2 class="username">{{ nameData?.data?.username }}</h2>
+        
 
           <!-- Stats Grid -->
-          <div class="stats-grid">
+          <!-- <div class="stats-grid">
             <div class="stat-card">
               <i class="fas fa-gamepad"></i>
               <h4>Games</h4>
@@ -30,7 +32,7 @@
               <h4>Status</h4>
               <p>Verified</p>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

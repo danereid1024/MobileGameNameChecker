@@ -6,7 +6,7 @@ import { GameListService } from '../../services/game-list.service';
 import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { NameCheckerResponse } from '../../interfaces/name-checker-response';
-import { CommonModule } from '@angular/common';
+import { NameDataService } from '../../services/name-data.service';
 
 @Component({
   selector: 'app-id-button',
@@ -15,6 +15,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './id-button.component.scss',
 })
 export class IdButtonComponent {
+
+  constructor(private nameDataService: NameDataService) {
+    const gameId = Number(this.route.snapshot.paramMap.get('id'));
+    this.gamesInfo = this.gameService.getGameById(gameId);
+  }
+
   @Input() id: string = '';
   @Input() userId: string = '';
   @Input() server: string = '';
@@ -25,27 +31,22 @@ export class IdButtonComponent {
   nameCheckerService = inject(NameCheckerService);
   gameService = inject(GameListService);
 
-  nameData?: NameCheckerResponse;
   gamesInfo: GamesInfo | undefined;
-
   pageId = 0;
 
-  constructor() {
-    const gameId = Number(this.route.snapshot.paramMap.get('id'));
-    this.gamesInfo = this.gameService.getGameById(gameId);
-  }
-
   getNextData(data: any) {
-    this.nameData = data;
-    data.status;
-    console.log(
-      this.nameData?.error,
-      this.nameData?.status,
-      this.nameData?.msg
-    );
-    if (this.nameData?.msg === 'id_not_found' || this.nameData?.error) {
-      alert('Invalid user ID!');
-    }
+    this.nameDataService.setNextData(data);
+    console.log(this.nameDataService.nameData?.data.username)
+    // this.nameData = data;
+    // data.status;
+    // console.log(
+    //   this.nameData?.error,
+    //   this.nameData?.status,
+    //   this.nameData?.msg
+    // );
+    // if (this.nameData?.msg === 'id_not_found' || this.nameData?.error) {
+    //   alert('Invalid user ID!');
+    // }
   }
 
   getGameID() {
@@ -111,16 +112,7 @@ export class IdButtonComponent {
     } else if (this.gamesInfo?.id === 6) {
       this.nameCheckerService.getGenshinImpact(this.id, this.server).subscribe({
         next: (data) => {
-          this.nameData = data;
-          data.status
-          console.log(
-            this.nameData?.error,
-            this.nameData?.status,
-            this.nameData?.msg
-          )
-          if (this.nameData?.msg === 'id_not_found' || this.nameData?.error) {
-            alert("Invalid user ID!");
-            }
+          this.getNextData(data);
         },
         error: (err) => {
           console.error(err);

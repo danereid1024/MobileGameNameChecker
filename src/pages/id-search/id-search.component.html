@@ -21,6 +21,8 @@
           <app-id-input (idChanged)="updateId($event)" />
           <app-id-button
             [id]="id"
+            [userId]="userId"
+            [zone_id]="zone_id"
             [server]="server"
             [tag]="tag"
           ></app-id-button>
@@ -28,7 +30,7 @@
 
         <!-- Results Section -->
         <section class="results-section">
-          <app-user-found />
+          <app-user-found  />
         </section>
       </div>
     </div>

@@ -6,6 +6,11 @@ import {NameCheckerResponse} from '../interfaces/name-checker-response';
   providedIn: 'root'
 })
 export class NameCheckerService {
+  nameDataService$: any;
+  setNextData(data: any) {
+    throw new Error('Method not implemented.');
+  }
+  nameData: any;
   getSomeData() {
     throw new Error('Method not implemented.');
   }

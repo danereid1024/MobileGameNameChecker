@@ -12,11 +12,11 @@
               type="text"
               class="form-control"
               id="userId"
-              (input)="onInputChange($event)"
+              (input)="onIdInputChange($event)"
               name="id"
               placeholder="Enter User's ID"
             />
-            <label for="userId"> <i class="fas fa-user"></i>User ID </label>
+            <!-- <label for="userId"> <i class="fas fa-user"></i>User ID </label> -->
           </div>
         </div>
         <!-- User Tag Field -->
@@ -26,11 +26,11 @@
               type="text"
               class="form-control"
               id="userTag"
-              (input)="onInputChange($event)"
+              (input)="onUserIdInputChange($event)"
               name="tag"
               placeholder="Enter User's Tag"
             />
-            <label for="userTag"> <i class="fas fa-tag"></i>User Tag </label>
+            <!-- <label for="userTag"> <i class="fas fa-tag"></i>User Tag </label> -->
           </div>
         </div>
 
@@ -41,30 +41,30 @@
               type="text"
               class="form-control"
               id="serverNumber"
-              (input)="onInputChange($event)"
+              (input)="onServerInputChange($event)"
               name="server"
               placeholder="Enter User's Server"
             />
-            <label for="serverNumber">
+            <!-- <label for="serverNumber">
               <i class="fas fa-server"></i>Server Number
-            </label>
+            </label> -->
           </div>
         </div>
 
         <!-- Zone ID Field -->
-        <div class="form-field" *ngIf="this.pageZone_Id">
+        <div class="form-field" *ngIf="this.pageZoneId">
           <div class="form-floating">
             <input
               type="text"
               class="form-control"
               id="zoneId"
-              (input)="onInputChange($event)"
+              (input)="onZoneIdInputChange($event)"
               name="zoneId"
               placeholder="Enter User's Zone ID"
             />
-            <label for="zoneId">
+            <!-- <label for="zoneId">
               <i class="fas fa-map-marker-alt"></i>Zone ID
-            </label>
+            </label> -->
           </div>
         </div>
       </div>

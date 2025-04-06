@@ -39,9 +39,11 @@ import { MatListModule } from '@angular/material/list';
 export class HomeComponent implements OnInit, AfterViewInit {
   gamesList: GamesInfo[] = [];
   gamesService = inject(GameListService);
+  filteredGameList: GamesInfo[] = [];
 
   constructor(private elementRef: ElementRef) {
     this.gamesList = this.gamesService.getAllGames();
+    this.filteredGameList = this.gamesList;
   }
 
   ngOnInit(): void {
@@ -50,6 +52,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.initializeCardEffects();
+  }
+
+  filterGames(text: string) {
+    if (!text) this.filteredGameList = this.gamesList;
+
+    this.filteredGameList = this.gamesList.filter((game) =>
+      game.name.toLowerCase().includes(text.toLowerCase())
+    );
   }
 
   private initializeCardEffects() {
