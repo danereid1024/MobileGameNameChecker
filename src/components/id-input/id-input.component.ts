@@ -11,7 +11,7 @@ import { GameListService } from '../../services/game-list.service';
 
 @Component({
   selector: 'app-id-input',
-  imports: [CommonModule, FormsModule, MatFormField, MatLabel, MatInputModule],
+  imports: [CommonModule, FormsModule, MatInputModule],
   templateUrl: './id-input.component.html',
   styleUrl: './id-input.component.scss',
 })

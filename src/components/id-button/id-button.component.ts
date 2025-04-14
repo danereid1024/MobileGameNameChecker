@@ -3,14 +3,12 @@ import { NameCheckerService } from '../../services/name-checker.service';
 import { ActivatedRoute } from '@angular/router';
 import { GamesInfo } from '../../interfaces/games-info';
 import { GameListService } from '../../services/game-list.service';
-import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { NameCheckerResponse } from '../../interfaces/name-checker-response';
 import { NameDataService } from '../../services/name-data.service';
 
 @Component({
   selector: 'app-id-button',
-  imports: [MatButtonModule, NgIf],
+  imports: [MatButtonModule],
   templateUrl: './id-button.component.html',
   styleUrl: './id-button.component.scss',
 })
