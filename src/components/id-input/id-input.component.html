@@ -20,7 +20,7 @@
           </div>
         </div>
         <!-- User Tag Field -->
-        <div class="form-field" *ngIf="this.pageTag">
+        <div class="form-field" *ngIf="this.pageUserId">
           <div class="form-floating">
             <input
               type="text"
@@ -28,7 +28,7 @@
               id="userTag"
               (input)="onUserIdInputChange($event)"
               name="tag"
-              placeholder="Enter User's Tag"
+              placeholder="Enter User's ID"
             />
             <!-- <label for="userTag"> <i class="fas fa-tag"></i>User Tag </label> -->
           </div>

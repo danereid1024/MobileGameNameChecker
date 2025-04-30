@@ -47,68 +47,92 @@ export class IdInputComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    switch (this.gamesInfo?.id) {
-      case 0:
-        this.pageId = true;
-        this.pageTag = true;
-        break;
-      case 1:
-        this.pageId = true;
-        this.pageServer = true;
-        break;
-      case 2:
-      case 3:
-      case 4:
-      case 5:
-        this.pageId = true;
-        break;
-      case 6:
-        this.pageId = true;
-        this.pageServer = true;
-        break;
-      case 7:
-      case 8:
-      case 9:
-        this.pageId = true;
-        break;
-      case 10:
-        this.pageId = true;
-        this.pageServer = true;
-        break;
-      case 11:
-        this.pageId = true;
-        break;
-      case 12:
-        this.pageId = true;
-        this.pageServer = true;
-        break;
-      case 13:
-        this.pageId = true;
-        break;
-      case 14:
-        this.pageId = true;
-        this.pageServer = true;
-        break;
-      case 15:
-      case 16:
-        this.pageId = true;
-        break;
-      case 17:
-        this.pageId = true;
-        this.pageZoneId = true;
-        break;
-      case 18:
-        this.pageId = true;
-        break;
-      case 19:
-        this.pageId = true;
-        this.pageServer = true;
-        break;
-      case 20:
-      case 21:
-        this.pageId = true;
-        break;
+
+    const id = this.gamesInfo?.id;
+
+    const idOnlySet = new Set([3, 4, 5, 7, 8, 9, 11, 13, 15, 16, 18, 20, 21]);
+    const userIdOnlySet = new Set([2]);
+    const idAndServerSet = new Set([1, 6, 10, 12, 14, 19]);
+    const idAndTagSet = new Set([0]);
+    const idAndZoneIdSet = new Set([17]);
+
+    if (id !== undefined && idAndTagSet.has(id)) {
+      this.pageId = true;
+      this.pageTag = true;
+    } else if (id !== undefined && userIdOnlySet.has(id)) {
+      this.pageUserId = true;
+    }else if (id !== undefined && idAndServerSet.has(id)) {
+      this.pageId = true;
+      this.pageServer = true;
+    } else if (id !== undefined && idAndZoneIdSet.has(id)) {
+      this.pageId = true;
+      this.pageZoneId = true;
+    } else if (id !== undefined && idOnlySet.has(id)) {
+      this.pageId = true;
     }
+
+    // switch (this.gamesInfo?.id) {
+    //   case 0:
+    //     this.pageId = true;
+    //     this.pageTag = true;
+    //     break;
+    //   case 1:
+    //     this.pageId = true;
+    //     this.pageServer = true;
+    //     break;
+    //   case 2:
+    //   case 3:
+    //   case 4:
+    //   case 5:
+    //     this.pageId = true;
+    //     break;
+    //   case 6:
+    //     this.pageId = true;
+    //     this.pageServer = true;
+    //     break;
+    //   case 7:
+    //   case 8:
+    //   case 9:
+    //     this.pageId = true;
+    //     break;
+    //   case 10:
+    //     this.pageId = true;
+    //     this.pageServer = true;
+    //     break;
+    //   case 11:
+    //     this.pageId = true;
+    //     break;
+    //   case 12:
+    //     this.pageId = true;
+    //     this.pageServer = true;
+    //     break;
+    //   case 13:
+    //     this.pageId = true;
+    //     break;
+    //   case 14:
+    //     this.pageId = true;
+    //     this.pageServer = true;
+    //     break;
+    //   case 15:
+    //   case 16:
+    //     this.pageId = true;
+    //     break;
+    //   case 17:
+    //     this.pageId = true;
+    //     this.pageZoneId = true;
+    //     break;
+    //   case 18:
+    //     this.pageId = true;
+    //     break;
+    //   case 19:
+    //     this.pageId = true;
+    //     this.pageServer = true;
+    //     break;
+    //   case 20:
+    //   case 21:
+    //     this.pageId = true;
+    //     break;
+    // }
   }
 
   onIdInputChange(event: Event) {
