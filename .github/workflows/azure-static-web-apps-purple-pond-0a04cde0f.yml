@@ -27,6 +27,7 @@ jobs:
           sudo chmod u+w .git/config || exit 0
           sudo chown $USER:$USER .git/config || exit 0
           echo "Permissions adjusted successfully."
+          chmod -R u+w .git
 
       # Debugging step to verify permissions
       - name: Verify .git/config Permissions
@@ -34,6 +35,8 @@ jobs:
           echo "Verifying permissions for .git/config..."
           ls -l .git/config
           cat .git/config || echo "Unable to display .git/config contents due to permissions."
+          git config --global --add safe.directory "${{ github.workspace }}"
+
 
       - name: Build And Deploy
         id: builddeploy
