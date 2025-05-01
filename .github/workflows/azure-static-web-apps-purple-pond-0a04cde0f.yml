@@ -20,12 +20,21 @@ jobs:
           submodules: true
           lfs: false
           
-      # Add this new step to adjust permissions for the .git/config file
+      # Step to adjust permissions for the .git/config file
       - name: Adjust permissions for .git/config
         run: |
+          echo "Adjusting permissions for .git/config..."
           sudo chmod u+w .git/config || exit 0
           sudo chown $USER:$USER .git/config || exit 0
-      
+          echo "Permissions adjusted successfully."
+
+      # Debugging step to verify permissions
+      - name: Verify .git/config Permissions
+        run: |
+          echo "Verifying permissions for .git/config..."
+          ls -l .git/config
+          cat .git/config || echo "Unable to display .git/config contents due to permissions."
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
